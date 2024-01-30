@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "site": "dhkdtld37-hello-vue",  
+    "public": "docs",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
+
