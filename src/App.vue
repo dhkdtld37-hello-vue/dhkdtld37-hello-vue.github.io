@@ -3,11 +3,11 @@ import { ref, onMounted } from 'vue'
 
 // reactive state
 const count = ref(1)
-const count = 0
+
 
 // function that mutate state and trigger updates
 function increment() {
-  count = count + 1
+  count.value = count.value + 1
 }
 
 // lifecycle hooks
@@ -17,12 +17,12 @@ onMounted(() => {
 </script>
 
 <template>
-	<button @click="increment">Count is: {{ count }}</button>
+  <button @click="increment">Count is: {{ count }}</button>
 </template>
 
 <style scoped>
 button {
-	font-weight: bold;
+  font-weight: bold;
 }
 </style>
 
