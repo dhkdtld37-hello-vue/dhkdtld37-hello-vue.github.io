@@ -1,7 +1,7 @@
 {
   "name": "dhkdtld37-hello-vue.github.io",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.3.2",
+  "private": false,
   "type": "module",
   "scripts": {
     "dev": "vite",
