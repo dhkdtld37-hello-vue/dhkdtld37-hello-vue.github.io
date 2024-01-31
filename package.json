@@ -1,6 +1,6 @@
 {
   "name": "dhkdtld37-hello-vue.github.io",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^10.7.2",
     "vue": "^3.3.11"
   },
   "devDependencies": {
