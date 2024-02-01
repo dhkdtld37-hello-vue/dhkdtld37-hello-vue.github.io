@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onUpdated, onMounted, onBeforeUpdate } from 'vue'
+import { ref, onUpdated } from 'vue'
 const count = ref(0)
 onUpdated(() => {
   console.log(document.getElementById('count').textContent)
