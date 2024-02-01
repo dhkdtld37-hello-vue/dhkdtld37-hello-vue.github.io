@@ -1,13 +1,14 @@
 <script setup>
 import { ref } from 'vue'
 
-import category from "@/assets/category.json"
-const categories = ref(category)
+const author = ref({
+  name: 'John Doe',
+  books: [1, 2, 3]
+})
 </script>
 
 <template>
-  <li v-for="(item, index) in categories">
-	{{ item.name }} - {{ item.code }} - {{ index }}
-  </li>
+  <p>Has pulished books:</p>
+  <span>{{ author.books.length > 2 ? 'Yes' : 'No' }}</span>
 </template>
 
