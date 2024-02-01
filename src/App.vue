@@ -9,8 +9,7 @@ const filterK = (item) => {
   return item && item.name && item.name.toLowerCase().includes('k');
 };
 
-const 
-
+const itemK = filterK()
 
 </script>
 
@@ -24,9 +23,12 @@ const
 	  </li>
 	</ul>
 
-	<ul>
-	  <li 
-
+	<ul v-if="teamK">
+	  <li v-for="item in itemK"> 
+		 {{ item.name }} - {{ item.id }}
+                <img :src="item.flag" alt="Team Flag" style="max-width: 100px; max-height: 100px;">
+          </li>
+        </ul>
   </div>
 </template>
 
