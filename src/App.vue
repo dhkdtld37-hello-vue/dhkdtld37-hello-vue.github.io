@@ -9,18 +9,18 @@ const todos = ref([
 ])
 
 function addTodo() {
-
+  todos.value.push({ id: id++, issue: newTodo.value })
+  newTodo.value = ''
 }
 
 function removeTodo(todo) {
-  console.log(todo)
   todos.value = todos.value.filter((t) => t !== todo)
 }
 
 </script>
 
 <template>
-  <form @submit="addTodo">
+  <form @submit.prevent="addTodo">
     <input v-model="newTodo">
     <button>할 일 추가</button>
   </form>
