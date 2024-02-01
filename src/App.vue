@@ -11,7 +11,7 @@ const teams = ref(team)
   <div>
 	<h2>2018 WORLD CUP TEAM</h2>
 	<ul>
-	  <li v-for="item in teams">
+	  <li v-for="item in teams" v-if="item && item.name  && item.name.toLowerCase().includes('j')" >
 		{{ item.name }} - {{ item.id }}
 		<img :src="item.flag" alt="Team Flag" style="max-width: 100px; max-height: 100px;">
 	  </li>
