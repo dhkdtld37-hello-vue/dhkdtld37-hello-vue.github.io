@@ -1,19 +1,12 @@
 <script setup>
-import { reactive, computed, ref } from 'vue'
+function say(message) {
+  alert(message)
+}
 
-const author = ref({
-  name: 'John Doe',
-  books: [1, 2, 3]
-})
-
-const check = computed(() => {return author.value.books.length > 2 ? 'Yes' : 'No' })
 </script>
 
 <template>
-  <span>😁: </span>
-  <span>{{ author.books.length > 2 ? 'Yes' : 'No' }}</span>
-  <div>computed ↓↓</div>
-  <div>{{ check }}</div>
-
+  <button @click="say('hello')">Say hello</button>
+  <button @click="say('bye')">Say bye</button>
 </template>
 
