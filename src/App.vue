@@ -11,15 +11,24 @@ async function fetchData() {
   todoData.value = await res.json()
 }
 
-fetchData()
+// 1.
+// fetchData()
+
+// function get() {
+//   todoId.value++
+//   fetchData()
+// }
+
+// 2.
+// fetchData()
+
+// 2-2
+watch(todoId, fetchData())
 
 function get() {
   todoId.value++
   fetchData()
 }
-
-// watch(todoId, fetchData);
-// fetchData();
 
 </script>
 
