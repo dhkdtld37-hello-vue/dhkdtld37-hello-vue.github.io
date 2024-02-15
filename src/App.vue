@@ -1,33 +1,32 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
-let id = 0
-const newTodo = ref('')
-const todos = ref([
-  { id: id++, issue: 'Backlog' }, {id: id++, issue: 'Todo' },
-  { id: id++, issue: 'Going Hawaii' }
-])
+const todoId = ref(1); const todoData = ref(null)
 
-function addTodo() {
-  todos.value.push({ id: id++, issue: newTodo.value })
-  newTodo.value = ''
+async function fetchData() {
+  todoData.value = null
+  const res = await fetch (
+	`https://jsonplaceholder.typicode.com/todos/${todoId.value}`
+  )
+  todoData.value = await res.json()
 }
 
-function removeTodo(todo) {
-  todos.value = todos.value.filter((t) => t !== todo)
+fetchData()
+
+function get() {
+  todoId.value++
+  fetchData()
 }
+
+// 감시자
+watch(todoId, fetchData)
 
 </script>
 
 <template>
-  <form @submit.prevent="addTodo">
-    <input v-model="newTodo">
-    <button>할 일 추가</button>
-  </form>
-  <ul>
-    <li v-for="todo in todos">
-	{{ todo.issue }} - <button @click="removeTodo(todo)">Done</button>
-    </li>
-  </ul>
+  <p>Todo id: {{ todoId }}</p>
+  <button @click="get" :disabled="!todoData">Fetch next todo</button>
+  <p v-if="!todoData">Loading...</p>
+  <pre v-else>{{ todoData }}</pre>
 </template>
 
